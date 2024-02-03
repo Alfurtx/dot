@@ -47,6 +47,10 @@ cd ~
 # Install other pkgs
 sudo paru -S --noconfirm "${AUDIO[@]}" "${BLUE[@]}" "${NET[@]}" "${DESKTOP[@]}" "${DESKTOP[@]}"
 
+# Setup git
+git config --global user.name "Alfonso Amorós Cubells"
+git config --global user.email "alfonso.alfurtx@gmail.com"
+
 # Setup new ssh keys
 # Setup shh-agent
 # Setup new github keys

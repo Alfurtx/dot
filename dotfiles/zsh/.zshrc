@@ -33,21 +33,17 @@ setopt auto_cd
 
 ## aliases
 alias l="ls -ABGhv --group-directories-first --color=auto"
-alias sd="cd ~ && \$(fd --type d $FD_OPTIONS | fzf)"
 alias vi="nvim"
-alias z="sd"
 alias cls="clear"
 alias magit='emacsclient -t -c --eval "(magit-status)"; clear'
 
-## bindings
-# bindkey -s '^f' 'sd^M'
 
-## PROMPT
+## prompt
 PROMPT='%B%~%b ${vcs_info_msg_0_}:: '
 
 ## gpg
-export GPG_TTY=$(tty)
-gpgconf --launch gpg-agent
+# export GPG_TTY=$(tty)
+# gpgconf --launch gpg-agent
 
 ## Tmux
 # if [ -z "$TMUX" ]; then

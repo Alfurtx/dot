@@ -2,7 +2,7 @@
 
 # Create all folders that are going to be needed
 cd ~
-mkdir -p .config .local/share .local/state .local/bin .cache personal pictures/wallpapers
+mkdir -p .config .local/share .local/state .local/bin .cache personal/upv personal/work pictures/wallpapers pictures/screenshots
 
 # Setup all basic env variables so that nothing gets scattered throughout the homedir
 export LESSHISTFILE=-
@@ -28,12 +28,16 @@ export SWWW_TRANSITION_STEP=2
 BASE=(base base-devel linux linux-firmware git acpi efibootmgr grub wget curl zsh archlinux-keyring)
 AUDIO=(pipewire pipewire-audio pipewire-alsa pipewire-jack pipewire-v4l2 wireplumber pasystray-wayland pavucontrol)
 BLUE=(bluez bluez-utils blueman)
-NET=(network-manager-applet networkmanager networkmanager-dmenu-git networkmanager-openvpn networkmanager-vpnc)
+NET=(network-manager-applet networkmanager)
 WAYLAND=(qt5ct qt6-wayland waybar wayland wayland-protocols grim slurp sway sway-input-config swaybg swayidle swaylock swww wl-clipboard wl-color-picker wlrobs-hg xorg-xwayland)
 DESKTOP=(fuzzel brightnessctl cbatticon chrony discord dunst dmenu foot firefox fd ripgrep grep man-db less htop mesa neovim nodejs npm openssh stow tlp tmux tree ttf-comic-mono-git unzip vi vim vlc zathura zathura-pdf-poppler zram-generator zsh-autosuggestions zsh-completions zsh-syntax-highlighting)
 
 # Install base pkgs
 sudo pacman -S --noconfirm "${BASE[@]}"
+
+# Setup git
+git config --global user.name "Alfonso Amorós Cubells"
+git config --global user.email "alfonso.alfurtx@gmail.com"
 
 # Install PARU
 sudo pacman -S --needed base-devel
@@ -43,17 +47,7 @@ git clone https://aur.archlinux.org/paru.git
 cd paru
 makepkg -si
 cd ~
+rm -r ~/tmp
 
 # Install other pkgs
 sudo paru -S --noconfirm "${AUDIO[@]}" "${BLUE[@]}" "${NET[@]}" "${DESKTOP[@]}" "${DESKTOP[@]}"
-
-# Setup git
-git config --global user.name "Alfonso Amorós Cubells"
-git config --global user.email "alfonso.alfurtx@gmail.com"
-
-# Setup new ssh keys
-# Setup shh-agent
-# Setup new github keys
-
-# Setup multihead (multi monitor) support
-# Setup work if another monitor is connected and lid is closed

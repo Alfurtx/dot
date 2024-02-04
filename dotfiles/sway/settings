@@ -1,0 +1,52 @@
+set $mod Mod4
+set $term foot
+set $menu fuzzel
+set $left h
+set $down j
+set $up k
+set $right l
+
+output eDP-1 {
+	resolution 1920x1080 
+	position 2560,0
+}
+output "Microstep MSI MAG341CQ MA0H019090105" {
+	resolution 2560x1440
+	position 0,0
+}
+
+input * xkb_layout "es"
+
+exec cbatticon
+# exec pasystray
+
+workspace_layout tabbed
+
+bar {
+    swaybar_command waybar
+    mode hide
+    position bottom
+    hidden_state hide
+    modifier $mod
+}
+
+# Autostart applications
+# exec waybar
+exec_always nm-applet --indicator
+exec pasystray
+exec blueman-applet
+# exec pactl load-module module-switch-on-connect
+# exec swww init
+
+#
+# Window Rules
+#
+for_window [app_id="foot"] border none
+for_window [app_id="foot"] fullscreen enable
+for_window [app_id="emacs"] fullscreen enable
+assign [app_id="foot"] 3
+assign [app_id="emacs"] 4
+
+include /etc/sway/config.d/*
+include keyboard
+include touchpad
